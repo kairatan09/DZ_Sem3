@@ -2,27 +2,73 @@
 // Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в N-мерном пространстве. 
 // Сначала задается N с клавиатуры, потом задаются координаты точек.
 
-void Distance3D(int x1, int y1, int z1, int x2, int y2, int z2)
+// Console.Write("Введите мерность постранства:\t");
+// int n = int.Parse(Console.ReadLine());
+// int[] koord1 = new int[n];
+// int[] koord2 = new int[n];
+
+// Console.WriteLine($"\nВведите {n}-мерную координату точки 1:");
+// for (int i = 0; i < koord1.Length; i++)
+//   koord1[i] = int.Parse(Console.ReadLine());
+
+// Console.WriteLine($"\nВведите {n}-мерную координату точки 2:");
+// for (int i = 0; i < koord1.Length; i++)
+//   koord2[i] = int.Parse(Console.ReadLine());
+
+// Console.WriteLine("\nВывод координат точки 1:");
+// for (int i = 0; i < koord1.Length; i++)
+//   Console.WriteLine(koord1[i]);
+
+// Console.WriteLine("\nВывод координат точки 2:");
+// for (int i = 0; i < koord2.Length; i++)
+//   Console.WriteLine(koord2[i]);
+// int sum = 0;
+// for (int i = 0; i < n; i++)
+// {
+//   sum += (koord1[i] - koord2[i]) * (koord1[i] - koord2[i]);
+// }
+
+// double distance = Math.Sqrt(sum);
+
+// Console.WriteLine($"\nРасстояние между точками в {n}-мерном пространстве:\t{distance}");
+
+void FillArray(int[] array, int n, int dot)
 {
-  double n = Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
-  Console.WriteLine($"Расстояние составляет {n}");
+  Console.WriteLine($"\nВведите {n}-мерную координату точки {dot}:");
+  for (int i = 0; i < array.Length; i++)
+    array[i] = int.Parse(Console.ReadLine());
 }
 
-try
-{
-  Console.WriteLine("Введите 3D координату х1, у1 и z1:");
-  int x1 = Convert.ToInt32(Console.ReadLine());
-  int y1 = Convert.ToInt32(Console.ReadLine());
-  int z1 = Convert.ToInt32(Console.ReadLine());
-  Console.WriteLine("Введите 3D координату х2, у2 и z2:");
-  int x2 = Convert.ToInt32(Console.ReadLine());
-  int y2 = Convert.ToInt32(Console.ReadLine());
-  int z2 = Convert.ToInt32(Console.ReadLine());
 
-  Distance3D(x1, y1, z1, x2, y2, z2);
+void PrintArray(int[] array, int dot)
+{
+  Console.WriteLine($"\nВывод координат точки {dot}:");
+  for (int i = 0; i < array.Length; i++)
+    Console.WriteLine(array[i]);
 }
 
-catch
+
+void Distance(int[] koord1, int[] koord2, int n)
 {
-  Console.WriteLine("Были введены некорректные данные");
+  int sum = 0;
+  for (int i = 0; i < n; i++)
+  {
+    sum += (koord1[i] - koord2[i]) * (koord1[i] - koord2[i]);
+  }
+  double dis = Math.Sqrt(sum);
+  Console.WriteLine($"\nРасстояние между точками в {n}-мерном пространстве:\t{dis}");
 }
+
+
+Console.Write("Введите мерность постранства:\t");
+int n = int.Parse(Console.ReadLine());
+int[] koord1 = new int[n];
+int[] koord2 = new int[n];
+
+FillArray(koord1, n, 1);
+FillArray(koord2, n, 2);
+
+PrintArray(koord1, 1);
+PrintArray(koord2, 2);
+
+Distance(koord1, koord2, n);
