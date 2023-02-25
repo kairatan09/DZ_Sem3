@@ -34,9 +34,17 @@ bool CheckPolindrom(int number)
   return false;
 }
 
-int number = Welcome("Введите пятизначное число: -> ");
-if (CheckNumber(number))
-  if (CheckPolindrom(number))
-  {
+try
+{
+  int number = Welcome("Введите пятизначное число: -> ");
+  if (CheckNumber(number))
+    if (CheckPolindrom(number))
+    {
 
-  }
+    }
+}
+
+catch
+{
+  Console.WriteLine("Были введены некорректные данные");
+}
