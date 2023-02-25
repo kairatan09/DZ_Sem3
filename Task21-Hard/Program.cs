@@ -36,7 +36,7 @@ void FillArray(int[] array, int n, int dot)
 {
   Console.WriteLine($"\nВведите {n}-мерную координату точки {dot}:");
   for (int i = 0; i < array.Length; i++)
-    array[i] = int.Parse(Console.ReadLine());
+    array[i] = Convert.ToInt32(Console.ReadLine());
 }
 
 
@@ -61,7 +61,7 @@ void Distance(int[] koord1, int[] koord2, int n)
 
 
 Console.Write("Введите мерность постранства:\t");
-int n = int.Parse(Console.ReadLine());
+int n = Convert.ToInt32(Console.ReadLine());
 int[] koord1 = new int[n];
 int[] koord2 = new int[n];
 
