@@ -38,5 +38,5 @@ int number = Welcome("Введите пятизначное число: -> ");
 if (CheckNumber(number))
   if (CheckPolindrom(number))
   {
-    
+
   }
